@@ -3,7 +3,7 @@ namespace Concrete\Package\AutomaticEmailObfuscator\Src;
 
 use Core;
 use Concrete\Core\Page\Page;
-use Symfony\Component\EventDispatcher\Event;
+use Symfony\Component\EventDispatcher\GenericEvent;
 
 class EmailObfuscationHelper
 {
@@ -17,10 +17,10 @@ class EmailObfuscationHelper
      * Handles the event's content
      * obfuscates emails if current page is not admin area
      *
-     * @param Event $event
-     * @return Event
+     * @param GenericEvent $event
+     * @return GenericEvent
      */
-    public function handle(Event $event)
+    public function handle(GenericEvent $event)
     {
         $viewText = $event->getArgument('contents');
         $p = Page::getCurrentPage();
@@ -59,7 +59,7 @@ class EmailObfuscationHelper
     {
         $parts = array($matches[1], $matches[2], $matches[3], $matches[4], $matches[5]);
         $obfuscator = Core::make('automatic_email_obfuscator/obfuscator');
-        
+
         $text = $parts[2] . $parts[3];
         $obfuscated = $obfuscator->obfuscateMailtoLinkHref($text);
         if ($text != $obfuscated) {
