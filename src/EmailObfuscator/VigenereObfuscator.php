@@ -1,4 +1,4 @@
-<?php
+<?php 
 namespace Concrete\Package\AutomaticEmailObfuscator\Src\EmailObfuscator;
 
 use Core;
@@ -53,12 +53,12 @@ class VigenereObfuscator extends AbstractObfuscator
         $j = -1;
         for ($i = 0; $i < $email_len; $i++) {
             $j++;
-            if (strpos($alphabet, $email{$i}) === false) {
+            if (strpos($alphabet, $email[$i]) === false) {
                 $j--;
-                $ciphered_email .= $email{$i};
+                $ciphered_email .=  $email[$i];
             } else {
-                $pos_in_alpha = strpos($alphabet, $key{$j});
-                $ciphered_email .= strtr($email{$i}, $alphabet, $alphabet_matrix[$pos_in_alpha]);
+                $pos_in_alpha = strpos($alphabet, $key[$j]);
+                $ciphered_email .= strtr($email[$i], $alphabet, $alphabet_matrix[$pos_in_alpha]);
             }
             if ($j === $key_len - 1) {
                 $j = -1;

@@ -1,4 +1,4 @@
-<?php
+<?php 
 namespace Concrete\Package\AutomaticEmailObfuscator\Src;
 
 use Core;
@@ -59,7 +59,7 @@ class EmailObfuscationHelper
     {
         $parts = array($matches[1], $matches[2], $matches[3], $matches[4], $matches[5]);
         $obfuscator = Core::make('automatic_email_obfuscator/obfuscator');
-
+        
         $text = $parts[2] . $parts[3];
         $obfuscated = $obfuscator->obfuscateMailtoLinkHref($text);
         if ($text != $obfuscated) {

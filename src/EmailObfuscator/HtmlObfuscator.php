@@ -1,4 +1,4 @@
-<?php
+<?php 
 namespace Concrete\Package\AutomaticEmailObfuscator\Src\EmailObfuscator;
 
 use Concrete\Core\Asset\AssetList;

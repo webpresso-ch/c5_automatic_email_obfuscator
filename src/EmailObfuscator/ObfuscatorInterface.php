@@ -1,4 +1,4 @@
-<?php
+<?php 
 namespace Concrete\Package\AutomaticEmailObfuscator\Src\EmailObfuscator;
 
 interface ObfuscatorInterface
